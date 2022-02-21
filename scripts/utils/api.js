@@ -5,12 +5,15 @@ const { TextEncoder, TextDecoder } = require('util');
 
 // Create api instance given a private key
 const getApi = (endpoint, privateKey) => new Api({
-    rpc: new JsonRpc(endpoint, { fetch }),
+    rpc: eosRpc(endpoint),
     signatureProvider: new JsSignatureProvider([privateKey]),
     textDecoder: new TextDecoder(),
     textEncoder: new TextEncoder()
 });
 
+const eosRpc = (endpoint) => new JsonRpc(endpoint, { fetch });
+
 module.exports = {
     getApi,
+    eosRpc,
 };
