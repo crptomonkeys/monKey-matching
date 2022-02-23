@@ -55,7 +55,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-[[eosio::action]] void matchamonkey::newgame(eosio::name owner)
+void matchamonkey::newgame(eosio::name owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -138,7 +138,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-[[eosio::action]] void matchamonkey::verify(eosio::name owner, std::vector<NFT> owned_assets)
+void matchamonkey::verify(eosio::name owner, std::vector<NFT> owned_assets)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -278,7 +278,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-[[eosio::action]] void matchamonkey::complete(eosio::name owner)
+void matchamonkey::complete(eosio::name owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -327,7 +327,7 @@ std::vector<uint16_t> random_set(
     {
       // Need to issue new tokens
       eosio::action(
-          permission_level{get_self(), eosio::name("active")},
+          permission_level{reward->contract, eosio::name("active")},
           reward->contract,
           eosio::name("issue"),
           make_tuple(
@@ -372,7 +372,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-[[eosio::action]] void matchamonkey::unfreeze(
+void matchamonkey::unfreeze(
     eosio::name owner,
     uint64_t asset_id)
 {
@@ -401,7 +401,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-[[eosio::action]] void matchamonkey::unfreezeall(
+void matchamonkey::unfreezeall(
     eosio::name owner)
 {
   require_auth(owner);
