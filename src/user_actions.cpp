@@ -331,6 +331,18 @@ void matchamonkey::complete(eosio::name & owner)
           reward->contract,
           eosio::name("issue"),
           make_tuple(
+              reward->contract,
+              reward->amount,
+              config.params.reward_memo))
+          .send();
+
+      // Trasnfer issued tokens
+      eosio::action(
+          permission_level{reward->contract, eosio::name("active")},
+          reward->contract,
+          eosio::name("transfer"),
+          make_tuple(
+              reward->contract,
               owner,
               reward->amount,
               config.params.reward_memo))
