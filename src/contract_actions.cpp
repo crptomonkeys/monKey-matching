@@ -50,7 +50,7 @@ void matchamonkey::maintenance(bool maintenance)
 
     @auth self
 */
-void matchamonkey::setparams(cfg_params & params)
+void matchamonkey::setparams(cfg_params &params)
 {
     require_auth(get_self());
 
@@ -71,7 +71,7 @@ void matchamonkey::setparams(cfg_params & params)
 
     @auth self
 */
-void matchamonkey::setsalt(std::string & salt)
+void matchamonkey::setsalt(std::string &salt)
 {
     require_auth(get_self());
 
@@ -105,7 +105,7 @@ void matchamonkey::rmreward(uint64_t completions)
 
     @auth self
 */
-void matchamonkey::addreward(uint64_t completions, eosio::name & contract, eosio::asset & amount)
+void matchamonkey::addreward(uint64_t completions, eosio::name &contract, eosio::asset &amount)
 {
     require_auth(get_self());
 
@@ -118,8 +118,7 @@ void matchamonkey::addreward(uint64_t completions, eosio::name & contract, eosio
                         {
                             row.completions = completions;
                             row.contract = contract;
-                            row.amount = amount;
-                        });
+                            row.amount = amount; });
     }
     else
     {
@@ -127,8 +126,7 @@ void matchamonkey::addreward(uint64_t completions, eosio::name & contract, eosio
                        {
                            row.completions = completions;
                            row.contract = contract;
-                           row.amount = amount;
-                       });
+                           row.amount = amount; });
     }
 }
 
@@ -152,7 +150,7 @@ void matchamonkey::rmmint(uint64_t index)
 
     @auth self
 */
-void matchamonkey::addmint(uint64_t index, uint64_t template_id, std::vector<MINT> & new_mints)
+void matchamonkey::addmint(uint64_t index, uint64_t template_id, std::vector<MINT> &new_mints)
 {
     require_auth(get_self());
     auto mints = get_mints();
@@ -165,8 +163,7 @@ void matchamonkey::addmint(uint64_t index, uint64_t template_id, std::vector<MIN
                       {
                           row.index = index;
                           row.template_id = template_id;
-                          row.mints.assign(new_mints.begin(), new_mints.end());
-                      });
+                          row.mints.assign(new_mints.begin(), new_mints.end()); });
     }
     else
     {
@@ -174,8 +171,7 @@ void matchamonkey::addmint(uint64_t index, uint64_t template_id, std::vector<MIN
                      {
                          row.index = index;
                          row.template_id = template_id;
-                         row.mints.assign(new_mints.begin(), new_mints.end());
-                     });
+                         row.mints.assign(new_mints.begin(), new_mints.end()); });
     }
 }
 
@@ -184,7 +180,7 @@ void matchamonkey::addmint(uint64_t index, uint64_t template_id, std::vector<MIN
 
     @auth self
 */
-void matchamonkey::resetuser(eosio::name & user)
+void matchamonkey::resetuser(eosio::name &user)
 {
     require_auth(get_self());
 
@@ -210,7 +206,7 @@ void matchamonkey::resetuser(eosio::name & user)
 
     @auth self
 */
-void matchamonkey::log(std::string & action, std::vector<uint16_t> & data)
+void matchamonkey::log(std::string &action, std::vector<uint16_t> &data)
 {
     require_auth(get_self());
 }

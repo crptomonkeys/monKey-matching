@@ -16,10 +16,11 @@ namespace eosiotoken
       accounts accountstable(token_contract_account, owner.value);
       auto ac_itr = accountstable.find(sym_code.raw());
 
-      if (ac_itr == accountstable.end()) {
+      if (ac_itr == accountstable.end())
+      {
          return eosio::asset();
       }
-      
+
       return ac_itr->balance;
    }
 }

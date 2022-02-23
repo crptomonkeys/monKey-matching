@@ -55,7 +55,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-void matchamonkey::newgame(eosio::name & owner)
+void matchamonkey::newgame(eosio::name &owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -81,13 +81,12 @@ void matchamonkey::newgame(eosio::name & owner)
                   { row.owner = owner; });
 
     user = users.find(owner.value);
-  } 
+  }
   else if (user->completed_sets >= config.params.reward_reset)
   {
     // Reset completed sets to 0
     users.modify(user, owner, [&](auto &row)
-               { row.completed_sets = 0; });
-
+                 { row.completed_sets = 0; });
   }
 
   // Determine the next mints
@@ -114,8 +113,7 @@ void matchamonkey::newgame(eosio::name & owner)
                   row.owner = owner;
                   row.to_collect.assign(result.begin(), result.end()); // Assigns the generated set
                   row.collected = {};
-                  row.time = eosio::current_time_point();
-                });
+                  row.time = eosio::current_time_point(); });
 
   eosio::action(
       permission_level{get_self(), eosio::name("active")},
@@ -138,7 +136,7 @@ void matchamonkey::newgame(eosio::name & owner)
 
     @auth caller
 */
-void matchamonkey::verify(eosio::name & owner, std::vector<NFT> & owned_assets)
+void matchamonkey::verify(eosio::name &owner, std::vector<NFT> &owned_assets)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -246,8 +244,7 @@ void matchamonkey::verify(eosio::name & owner, std::vector<NFT> & owned_assets)
                           {
                             row.asset_id = match->asset_id;
                             row.owner = owner;
-                            row.time = eosio::current_time_point();
-                          });
+                            row.time = eosio::current_time_point(); });
 
     // Delete from mints to check
     // We remove the same mint numbers (if any) from the list
@@ -278,7 +275,7 @@ void matchamonkey::verify(eosio::name & owner, std::vector<NFT> & owned_assets)
 
     @auth caller
 */
-void matchamonkey::complete(eosio::name & owner)
+void matchamonkey::complete(eosio::name &owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -385,7 +382,7 @@ void matchamonkey::complete(eosio::name & owner)
     @auth caller
 */
 void matchamonkey::unfreeze(
-    eosio::name & owner,
+    eosio::name &owner,
     uint64_t asset_id)
 {
   require_auth(owner);
@@ -414,7 +411,7 @@ void matchamonkey::unfreeze(
     @auth caller
 */
 void matchamonkey::unfreezeall(
-    eosio::name & owner)
+    eosio::name &owner)
 {
   require_auth(owner);
   maintenace_check();

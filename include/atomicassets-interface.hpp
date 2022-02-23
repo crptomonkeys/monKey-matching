@@ -10,7 +10,7 @@ namespace atomicassets
 {
     static constexpr name ATOMICASSETS_ACCOUNT = name("atomicassets");
 
-    //Scope: owner
+    // Scope: owner
     struct assets_s
     {
         uint64_t asset_id;
