@@ -7,8 +7,8 @@
 | -------------- | ------------------------------------------------------------ | --------------------------------------------------------- | ---------------------------------------------- |
 | Contract name  | [bvyzsshbnkjl](https://wax-test.bloks.io/account/bvyzsshbnkjl) | [monkeysmatch](https://wax.bloks.io/account/monkeysmatch) | https://github.com/TheLonelyDev/Match-A-Monkey |
 | Game UI        |                                                              | https://match.cryptomonkeys.cc/                           |                                                |
-| Token contract | [wfqzrtsviwdq](https://wax-test.bloks.io/account/wfqzrtsviwdq) | [monkeystoken](https://wax.bloks.io/account/monkeystoken) | https://github.com/TheLonelyDev/monkeytoken    |
-| Shop contract  | [xummfxbitlwa](https://wax-test.bloks.io/account/xummfxbitlwa) | [monkeymarket](https://wax.bloks.io/account/monkeymarket) | https://github.com/TheLonelyDev/niftyshopper   |
+| Token contract | [wfqzrtsviwdq](https://wax-test.bloks.io/account/wfqzrtsviwdq) | [monkeystoken](https://wax.bloks.io/account/monkeystoken) | https://github.com/EOSIO/eosio.contracts/tree/master/contracts/eosio.token    |
+| Shop contract  | [xummfxbitlwa](https://wax-test.bloks.io/account/xummfxbitlwa) | [monkeymarket](https://wax.bloks.io/account/monkeymarket) | https://github.com/crptomonkeys/monkeymarket   |
 
 ## Actions
 
