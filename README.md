@@ -5,7 +5,7 @@
 
 | Component      | Test net                                                     | Main net                                                  | Source                                         |
 | -------------- | ------------------------------------------------------------ | --------------------------------------------------------- | ---------------------------------------------- |
-| Contract name  | [bvyzsshbnkjl](https://wax-test.bloks.io/account/bvyzsshbnkjl) | [monkeysmatch](https://wax.bloks.io/account/monkeysmatch) | https://github.com/TheLonelyDev/Match-A-Monkey |
+| Contract name  | [bvyzsshbnkjl](https://wax-test.bloks.io/account/bvyzsshbnkjl) | [monkeysmatch](https://wax.bloks.io/account/monkeysmatch) | https://github.com/crptomonkeys/monKey-matching |
 | Game UI        |                                                              | https://match.cryptomonkeys.cc/                           |                                                |
 | Token contract | [wfqzrtsviwdq](https://wax-test.bloks.io/account/wfqzrtsviwdq) | [monkeystoken](https://wax.bloks.io/account/monkeystoken) | https://github.com/EOSIO/eosio.contracts/tree/master/contracts/eosio.token    |
 | Shop contract  | [xummfxbitlwa](https://wax-test.bloks.io/account/xummfxbitlwa) | [monkeymarket](https://wax.bloks.io/account/monkeymarket) | https://github.com/crptomonkeys/monkeymarket   |
