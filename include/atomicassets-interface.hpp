@@ -1,8 +1,4 @@
-/*
-This file is not used for the actual atomicassets contract.
-It can be used as a header file for other contracts to access the atomicassets tables
-and custom data types.
-*/
+#pragma once
 
 #include <eosio/eosio.hpp>
 #include <eosio/asset.hpp>
