@@ -55,7 +55,7 @@ std::vector<uint16_t> random_set(
 
     @auth caller
 */
-void matchamonkey::newgame(eosio::name owner)
+void matchamonkey::newgame(eosio::name & owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -138,7 +138,7 @@ void matchamonkey::newgame(eosio::name owner)
 
     @auth caller
 */
-void matchamonkey::verify(eosio::name owner, std::vector<NFT> owned_assets)
+void matchamonkey::verify(eosio::name & owner, std::vector<NFT> & owned_assets)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -278,7 +278,7 @@ void matchamonkey::verify(eosio::name owner, std::vector<NFT> owned_assets)
 
     @auth caller
 */
-void matchamonkey::complete(eosio::name owner)
+void matchamonkey::complete(eosio::name & owner)
 {
   eosio::require_auth(owner);
   maintenace_check();
@@ -373,7 +373,7 @@ void matchamonkey::complete(eosio::name owner)
     @auth caller
 */
 void matchamonkey::unfreeze(
-    eosio::name owner,
+    eosio::name & owner,
     uint64_t asset_id)
 {
   require_auth(owner);
@@ -402,7 +402,7 @@ void matchamonkey::unfreeze(
     @auth caller
 */
 void matchamonkey::unfreezeall(
-    eosio::name owner)
+    eosio::name & owner)
 {
   require_auth(owner);
   maintenace_check();
