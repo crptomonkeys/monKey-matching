@@ -309,7 +309,7 @@ void matchamonkey::complete(eosio::name & owner)
     // Get the contract's balance of the token
     auto contract_balance = eosiotoken::get_balance(reward->contract, get_self(), reward->amount.symbol.code());
 
-    if (contract_balance >= reward->amount)
+    if (contract_balance.amount >= reward->amount.amount)
     {
       // We have enough to send
       eosio::action(
@@ -336,7 +336,7 @@ void matchamonkey::complete(eosio::name & owner)
               config.params.reward_memo))
           .send();
 
-      // Trasnfer issued tokens
+      // Transfer issued tokens
       eosio::action(
           permission_level{reward->contract, eosio::name("active")},
           reward->contract,
