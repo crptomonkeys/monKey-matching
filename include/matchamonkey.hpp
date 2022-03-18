@@ -29,7 +29,7 @@ public:
     struct NFT
     {
         uint64_t asset_id;
-        uint16_t index;
+        uint64_t index;
     };
 
     struct MINT
