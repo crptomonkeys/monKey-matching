@@ -74,7 +74,7 @@ const getExistingData = async () => {
             code: config.target.contract,
             scope: config.target.contract,
             table: 'mints',
-            limit: 50, // limit selection & paginate due to node constraints
+            limit: 25, // limit selection & paginate due to node constraints
             ...(result != undefined && {
                 lower_bound: result.next_key
             })
@@ -142,11 +142,11 @@ const arraysMatch = (arr1, arr2) => {
             
             newData.push([chunks[index], key]);
         }
-        else if (arraysMatch(matches[0].mints, chunks[index].mints)) {
+        else if (!arraysMatch(matches[0].mints, chunks[index].mints)) {
             // validate if current data == old data
             // matches, we can ignore this
-            console.log('Data already up-to-date', key);
-            continue;
+            console.log("Data is out-of-date", key);
+            newData.push([chunks[index], key]);
         }
     }
 
