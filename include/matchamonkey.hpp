@@ -29,7 +29,7 @@ public:
     struct NFT
     {
         uint64_t asset_id;
-        uint16_t index;
+        uint64_t index;
     };
 
     struct MINT
@@ -52,27 +52,27 @@ public:
         eosio::indexed_by<"template"_n, const_mem_fun<_mint_asset, uint64_t, &_mint_asset::secondary_key_0>>>
         _mints;
 
-    [[eosio::action]] void newgame(eosio::name owner);
-    [[eosio::action]] void verify(eosio::name owner, std::vector<NFT> owned_assets);
-    [[eosio::action]] void complete(eosio::name owner);
-    [[eosio::action]] void unfreeze(eosio::name owner, uint64_t asset_id);
-    [[eosio::action]] void unfreezeall(eosio::name owner);
+    [[eosio::action]] void newgame(eosio::name & owner);
+    [[eosio::action]] void verify(eosio::name & owner, std::vector<NFT> & owned_assets);
+    [[eosio::action]] void complete(eosio::name & owner);
+    [[eosio::action]] void unfreeze(eosio::name & owner, uint64_t asset_id);
+    [[eosio::action]] void unfreezeall(eosio::name & owner);
 
     [[eosio::action]] void init();
     [[eosio::action]] void destruct();
     [[eosio::action]] void maintenance(bool maintenance);
-    [[eosio::action]] void setsalt(std::string salt);
-    [[eosio::action]] void setparams(cfg_params params);
+    [[eosio::action]] void setsalt(std::string & salt);
+    [[eosio::action]] void setparams(cfg_params & params);
 
     [[eosio::action]] void rmmint(uint64_t index);
-    [[eosio::action]] void addmint(uint64_t index, uint64_t template_id, std::vector<MINT> new_mints);
+    [[eosio::action]] void addmint(uint64_t index, uint64_t template_id, std::vector<MINT> & new_mints);
 
     [[eosio::action]] void rmreward(uint64_t completions);
-    [[eosio::action]] void addreward(uint64_t completions, eosio::name contract, eosio::asset amount);
+    [[eosio::action]] void addreward(uint64_t completions, eosio::name & contract, eosio::asset & amount);
 
-    [[eosio::action]] void resetuser(eosio::name user);
+    [[eosio::action]] void resetuser(eosio::name & user);
 
-    [[eosio::action]] void log(std::string action, std::vector<uint16_t> data);
+    [[eosio::action]] void log(std::string & action, std::vector<uint16_t> & data);
 
 private:
     struct [[eosio::table("config")]] _config_entity
@@ -167,11 +167,3 @@ private:
     bool is_frozen(eosio::time_point time, int64_t freeze_time);
 };
 
-EOSIO_DISPATCH(matchamonkey,
-               (newgame)(verify)(complete)(unfreeze)(unfreezeall)
-
-                   (init)(destruct)(maintenance)(setsalt)(setparams)(resetuser)(log)
-
-                       (rmmint)(addmint)
-
-                           (rmreward)(addreward));

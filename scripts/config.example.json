@@ -1,7 +1,8 @@
 {
     "auth": {
         "address": "bvyzsshbnkjl",
-        "key": ""
+        "key": "",
+        "permission": "active"
     },
 
     "endpoints": {

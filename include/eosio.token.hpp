@@ -14,7 +14,13 @@ namespace eosiotoken
    static asset get_balance(const eosio::name &token_contract_account, const eosio::name &owner, const eosio::symbol_code &sym_code)
    {
       accounts accountstable(token_contract_account, owner.value);
-      const auto &ac = accountstable.get(sym_code.raw());
-      return ac.balance;
+      auto ac_itr = accountstable.find(sym_code.raw());
+
+      if (ac_itr == accountstable.end())
+      {
+         return eosio::asset();
+      }
+
+      return ac_itr->balance;
    }
 }

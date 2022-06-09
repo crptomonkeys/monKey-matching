@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const { ExplorerApi } = require("atomicassets");
 const api = new ExplorerApi(config.endpoints.atomicassets, "atomicassets", { fetch });
 const fs = require('fs');
-const resultsPerPage = 1000;
+const resultsPerPage = 100;
 
 (async () => {
     let page = 1;
@@ -13,7 +13,7 @@ const resultsPerPage = 1000;
         console.log(`Getting page ${page} with a limit of ${resultsPerPage}`);
         const data = await api.getAssets(config.mintsConfig.filter, page, resultsPerPage).then(x => x).catch(error => ({ success: false, error }));
 
-        console.log(`Request done...`);
+        console.log(`Request done... got ${data.length} results`);
 
         if (data.success === false) {
             console.log(`[!!!] An error occured on page ${page}, possible error: ${data.error}`);
