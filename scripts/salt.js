@@ -20,7 +20,7 @@ let endpoints = [];
 
             authorization: [{
                 actor: config.auth.address,
-                permission: 'active',
+                permission: config.auth.permission,
             }],
 
             data: {
@@ -29,7 +29,7 @@ let endpoints = [];
         }]
     }, {
         blocksBehind: 3,
-        expireSeconds: 30,
+        expireSeconds: 120,
     });
 
     console.log(`Set salt to ${salt}`);

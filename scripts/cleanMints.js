@@ -26,7 +26,7 @@ const action = async (indexes) => {
 
     }, {
         blocksBehind: 3,
-        expireSeconds: 30,
+        expireSeconds: 120,
     });
 };
 
@@ -41,7 +41,7 @@ const getExistingData = async () => {
             code: config.target.contract,
             scope: config.target.contract,
             table: 'mints',
-            limit: 91, // limit selection & paginate due to node constraints
+            limit: 50, // limit selection & paginate due to node constraints
             ...(result != undefined && {
                 lower_bound: result.next_key
             })
